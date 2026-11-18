@@ -1,0 +1,27 @@
+name: Baixar fotos de domínio público
+on:
+  workflow_dispatch:
+  push:
+    paths: ['.github/workflows/fotos.yml']
+permissions:
+  contents: write
+jobs:
+  fotos:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Baixar do Wikimedia Commons (Acervo Instituto Moreira Salles)
+        run: |
+          baixar() { curl -fsSL -A "marianavalha-site/1.0 (https://marianavalha.github.io)" -o "$1" "https://commons.wikimedia.org/wiki/Special:FilePath/$2?width=1600"; }
+          baixar img-castelo.jpg "Morro_do_Castelo_3,_Acervo_do_Instituto_Moreira_Salles.jpg"
+          baixar img-avenida-central.jpg "Avenida_Central_8,_Acervo_do_Instituto_Moreira_Salles.jpg"
+          baixar img-rua-da-carioca.jpg "Rua_da_Carioca_(013RJ007016).jpg"
+          baixar img-desfile.jpg "Desfile_das_grandes_sociedades_carnavalescas,_Acervo_do_Instituto_Moreira_Salles.jpg"
+          ls -la img-*.jpg
+      - name: Salvar no repositório
+        run: |
+          git config user.name "marianavalha"
+          git config user.email "marianavalha@users.noreply.github.com"
+          git add img-*.jpg
+          git diff --cached --quiet || git commit -m "Fotos de época: Malta e Ferrez, domínio público, Acervo IMS"
+          git push
