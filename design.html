@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Design system · Maria Navalha</title>
+<meta name="description" content="Maria Navalha: a lâmina e a rua. Obra de estudo sobre a entidade da malandragem, o Rio de Janeiro do pós-abolição e a força feminina nas religiões de matriz africana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="progresso" id="progresso"></div>
+<header class="topo">
+  <div class="envolve" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 32px;padding-top:14px;padding-bottom:14px">
+    <a href="index.html" style="font-family:var(--f-display);font-weight:900;font-size:24px;text-decoration:none">Maria <em style="color:var(--lamina);font-weight:700">Navalha</em></a>
+    <nav aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:0 26px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase"><a href="historia.html" class="nav-link">A história</a><a href="hoje.html" class="nav-link">Hoje</a><a href="estante.html" class="nav-link">Estante</a><a href="fontes.html" class="nav-link">Fontes e método</a></nav>
+  </div>
+</header>
+<main>
+<section class="envolve" style="padding-top:clamp(56px,8vw,104px);padding-bottom:48px">
+  <p class="rotulo" style="color:var(--lamina);margin:0 0 16px">Design system</p>
+  <h1 class="display" style="margin:0;font-size:clamp(48px,8vw,104px);max-width:960px">A noite, o papel e a lâmina.</h1>
+  <p style="margin:28px 0 0;max-width:660px;font-size:20px;color:#d8cdbd">As regras visuais da obra. Tom firme, sem melodrama. A noite da Lapa, o papel de arquivo e o corte da navalha separando as partes.</p>
+</section>
+
+<section class="sup-papel ato">
+  <div class="envolve">
+    <h2 class="titulo" style="font-size:40px;margin:0 0 24px">Cor</h2>
+    <div class="grade" style="grid-template-columns:repeat(auto-fit,minmax(170px,1fr))">
+      <div><div style="height:96px;background:#0f0b0c"></div><p class="rotulo" style="margin:10px 0 0;font-size:11px">Noite · #0f0b0c</p><p style="margin:2px 0 0;font-size:14px">Fundo principal</p></div>
+      <div><div style="height:96px;background:#efe6d6;border:1px solid #d6c9b2"></div><p class="rotulo" style="margin:10px 0 0;font-size:11px">Papel · #efe6d6</p><p style="margin:2px 0 0;font-size:14px">Seções de leitura</p></div>
+      <div><div style="height:96px;background:#e4524b"></div><p class="rotulo" style="margin:10px 0 0;font-size:11px">Lâmina · #e4524b</p><p style="margin:2px 0 0;font-size:14px">Destaque sobre a noite</p></div>
+      <div><div style="height:96px;background:#8f2a26"></div><p class="rotulo" style="margin:10px 0 0;font-size:11px">Sangue · #8f2a26</p><p style="margin:2px 0 0;font-size:14px">Destaque sobre o papel</p></div>
+      <div><div style="height:96px;background:#7a1514"></div><p class="rotulo" style="margin:10px 0 0;font-size:11px">Vinho · #7a1514</p><p style="margin:2px 0 0;font-size:14px">Atos de força</p></div>
+      <div><div style="height:96px;background:#c9962f"></div><p class="rotulo" style="margin:10px 0 0;font-size:11px">Ouro · #c9962f</p><p style="margin:2px 0 0;font-size:14px">Detalhes e links</p></div>
+    </div>
+
+    <h2 class="titulo" style="font-size:40px;margin:64px 0 24px">Tipografia</h2>
+    <div class="grade">
+      <div class="cartao"><p class="rotulo" style="color:var(--sangue)">Títulos · Fraunces</p><p class="display" style="font-size:64px;margin:12px 0 0">Navalha</p></div>
+      <div class="cartao"><p class="rotulo" style="color:var(--sangue)">Texto · DM Sans</p><p style="font-size:19px;margin:12px 0 0">A rua que a sustentava era a mesma que a condenava.</p></div>
+      <div class="cartao"><p class="rotulo" style="color:var(--sangue)">Datas e rótulos · IBM Plex Mono</p><p class="rotulo" style="font-size:16px;margin:12px 0 0">1888–1906</p></div>
+    </div>
+
+    <h2 class="titulo" style="font-size:40px;margin:64px 0 24px">Componentes</h2>
+    <div class="leitura">
+      <div class="resumo"><span class="rotulo" style="color:var(--sangue)">Em 30 segundos</span>O resumo abre cada ato, para quem quer o essencial.</div>
+      <blockquote class="citacao">A citação marca a frase que fica.</blockquote>
+      <details class="aprofundar"><summary>Aprofundar</summary><div><p>O texto extra fica recolhido, para a leitura não cansar.</p></div></details>
+      <p><span class="etiqueta et-doc">Documento</span> <span class="etiqueta et-pesq">Pesquisa</span> <span class="etiqueta et-trad">Tradição</span> <span class="etiqueta et-pista">Pista</span></p>
+      <p style="margin-top:24px"><a class="botao botao-lamina" href="historia.html">Botão principal</a></p>
+    </div>
+
+    <h2 class="titulo" style="font-size:40px;margin:64px 0 24px">Regras</h2>
+    <ul class="leitura" style="padding-left:20px">
+      <li>Tom firme e direto. Nada meloso, nada de vitimismo, nada de linguagem de igreja.</li>
+      <li>Fotos sempre em preto e branco, com autor, data e acervo na legenda.</li>
+      <li>Nenhuma imagem de entidade, médium ou terreiro sem autorização. Maria Navalha não tem fotografia.</li>
+      <li>Toda informação traz sua camada: documento, pesquisa ou tradição.</li>
+      <li>Pontos cantados só resumidos, com link para a fonte. Letras não são reproduzidas.</li>
+      <li>Movimento discreto, desligado para quem pede menos movimento no aparelho.</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+<footer class="envolve" style="padding-top:40px;padding-bottom:48px;font-size:14px;color:var(--cinza-noite);border-top:1px solid var(--linha);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between">
+  <span>Maria Navalha: a lâmina e a rua. As histórias de terreiro são tradição, não registro histórico.</span>
+  <span><a href="fontes.html">Fontes e método</a> · <a href="design.html">Design system</a></span>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>

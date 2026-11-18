@@ -1,0 +1,168 @@
+/* ==========================================================
+   Maria Navalha · Design System
+   Tokens, base, componentes. Usado junto com Tailwind (CDN).
+   ========================================================== */
+
+:root {
+  /* Cor */
+  --noite: #0f0b0c;        /* fundo principal, a noite da Lapa */
+  --noite-2: #1a1415;      /* cartões sobre a noite */
+  --linha: #3a2f2d;        /* bordas sobre a noite */
+  --papel: #efe6d6;        /* papel antigo, texto sobre a noite */
+  --papel-2: #fbf6ec;      /* cartões sobre o papel */
+  --linha-papel: #d6c9b2;
+  --tinta: #1f1b16;        /* texto sobre o papel */
+  --cinza: #6b6358;        /* texto secundário sobre o papel */
+  --cinza-noite: #b5aaa0;  /* texto secundário sobre a noite */
+  --sangue: #8f2a26;       /* destaque sobre o papel */
+  --lamina: #e4524b;       /* destaque sobre a noite: o corte */
+  --vinho: #7a1514;        /* seções de ponto e voz */
+  --ouro: #c9962f;         /* detalhe, links sobre a noite */
+  --ouro-claro: #e8c98a;
+
+  /* Tipografia */
+  --f-display: 'Fraunces', Georgia, serif;
+  --f-texto: 'DM Sans', system-ui, sans-serif;
+  --f-mono: 'IBM Plex Mono', ui-monospace, monospace;
+
+  /* Espaço e ritmo */
+  --medida: 68ch;          /* largura ideal de leitura */
+  --corte: 64px;           /* altura do corte diagonal entre seções */
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--f-texto);
+  background: var(--noite);
+  color: var(--papel);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--ouro); outline-offset: 3px; }
+
+/* ---------- Tipografia ---------- */
+.display { font-family: var(--f-display); font-weight: 900; letter-spacing: -0.03em; line-height: .92; }
+.titulo  { font-family: var(--f-display); font-weight: 700; letter-spacing: -0.02em; line-height: 1.05; }
+.rotulo  { font-family: var(--f-mono); font-size: 13px; letter-spacing: .18em; text-transform: uppercase; }
+.leitura { max-width: var(--medida); font-size: clamp(18px, 1.6vw, 20px); line-height: 1.8; }
+.leitura p { margin: 0 0 1.25em; }
+
+/* ---------- Superfícies ---------- */
+.sup-noite { background: var(--noite); color: var(--papel); }
+.sup-papel { background: var(--papel); color: var(--tinta); }
+.sup-vinho { background: var(--vinho); color: var(--papel); }
+
+/* ---------- O corte: a navalha que separa as seções ---------- */
+.corte { height: var(--corte); }
+.corte-esq { clip-path: polygon(0 0, 100% 0, 0 100%); }
+.corte-dir { clip-path: polygon(0 0, 100% 0, 100% 100%); }
+
+/* Traço da lâmina que risca o título */
+.risco { position: relative; display: inline-block; }
+.risco::after {
+  content: ""; position: absolute; left: -2%; top: 56%;
+  width: 104%; height: clamp(4px, .7vw, 10px);
+  background: var(--lamina); transform: rotate(-5deg) scaleX(0);
+  transform-origin: left center;
+  animation: cortar 1.1s .4s cubic-bezier(.7,0,.2,1) forwards;
+}
+@keyframes cortar { to { transform: rotate(-5deg) scaleX(1); } }
+
+/* ---------- Navegação ---------- */
+.nav-link { padding: 12px 0; color: var(--cinza-noite); text-decoration: none; border-bottom: 2px solid transparent; }
+.nav-link:hover { color: var(--papel); }
+.nav-link[aria-current="page"] { color: var(--papel); border-color: var(--lamina); }
+
+/* Barra de progresso de leitura */
+.progresso { position: fixed; top: 0; left: 0; height: 3px; width: 0; background: var(--lamina); z-index: 60; }
+
+/* ---------- Componentes ---------- */
+.etiqueta {
+  display: inline-block; font: 600 11px/1 var(--f-texto);
+  letter-spacing: .07em; text-transform: uppercase; padding: 6px 9px;
+}
+.et-doc   { background: #dfe9dc; color: #24501f; }   /* documento */
+.et-pesq  { background: #e2e4ef; color: #2e3a6b; }   /* pesquisa */
+.et-trad  { background: #efe2d2; color: #6e4116; }   /* tradição */
+.et-pista { background: #e8e4d2; color: #5c5320; }   /* pista a conferir */
+
+.resumo {
+  border: 1px solid currentColor; padding: 20px 22px; margin: 0 0 32px;
+  font-size: 17px; line-height: 1.6;
+}
+.resumo .rotulo { display: block; margin-bottom: 8px; }
+
+.citacao {
+  margin: 40px 0; padding: 0 0 0 24px; border-left: 4px solid var(--lamina);
+  font-family: var(--f-display); font-style: italic;
+  font-size: clamp(24px, 2.8vw, 36px); line-height: 1.22;
+}
+.sup-papel .citacao { border-color: var(--sangue); }
+
+.foto { margin: 48px 0; }
+.foto img { width: 100%; height: auto; filter: grayscale(1) contrast(1.05); border: 1px solid var(--linha); background: #2a2223; min-height: 200px; }
+.foto figcaption { margin-top: 12px; font-size: 14px; line-height: 1.5; opacity: .8; }
+.foto figcaption .rotulo { font-size: 11px; display: block; margin-bottom: 4px; opacity: 1; }
+
+/* Aprofundar: texto extra recolhido, para a leitura não cansar */
+details.aprofundar { border-top: 1px solid currentColor; border-bottom: 1px solid currentColor; margin: 8px 0 32px; }
+details.aprofundar summary {
+  cursor: pointer; list-style: none; padding: 16px 0; min-height: 44px;
+  font-family: var(--f-mono); font-size: 13px; letter-spacing: .14em; text-transform: uppercase;
+  display: flex; justify-content: space-between; align-items: center;
+}
+details.aprofundar summary::-webkit-details-marker { display: none; }
+details.aprofundar summary::after { content: "+"; font-size: 22px; }
+details.aprofundar[open] summary::after { content: "–"; }
+details.aprofundar > div { padding: 4px 0 20px; }
+
+.cartao { border: 1px solid var(--linha); background: var(--noite-2); padding: 28px; }
+.sup-papel .cartao { border-color: var(--linha-papel); background: var(--papel-2); }
+
+.botao {
+  display: inline-flex; align-items: center; min-height: 52px; padding: 0 28px;
+  font-weight: 700; text-decoration: none; transition: transform .2s ease;
+}
+.botao:hover { transform: translateY(-2px); }
+.botao-lamina { background: var(--lamina); color: var(--noite); }
+.botao-linha  { border: 1.5px solid currentColor; font-weight: 500; }
+
+.tabela { width: 100%; border-collapse: collapse; font-size: 16px; }
+.tabela th { font: 600 12px var(--f-mono); letter-spacing: .1em; text-transform: uppercase; text-align: left; padding: 12px 14px; border-bottom: 2px solid currentColor; }
+.tabela td { padding: 16px 14px; border-bottom: 1px solid var(--linha-papel); vertical-align: top; }
+.sup-noite .tabela td { border-color: var(--linha); }
+.rolagem-x { overflow-x: auto; }
+
+/* ---------- Movimento ---------- */
+.surge { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
+.surge.visivel { opacity: 1; transform: none; }
+.balanco { animation: balanco 7s ease-in-out infinite; transform-origin: center; }
+@keyframes balanco { 0%,100% { transform: rotate(-24deg); } 50% { transform: rotate(-19deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .surge { opacity: 1; transform: none; transition: none; }
+  .risco::after { animation: none; transform: rotate(-5deg) scaleX(1); }
+  .balanco { animation: none; transform: rotate(-22deg); }
+}
+
+/* ---------- Layout ---------- */
+.envolve{max-width:1240px;margin:0 auto;padding-left:clamp(20px,5vw,64px);padding-right:clamp(20px,5vw,64px)}
+.grade{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+header.topo{position:sticky;top:0;z-index:50;background:rgba(15,11,12,.94);backdrop-filter:blur(6px);border-bottom:1px solid var(--linha)}
+.porta{display:flex;flex-direction:column;gap:14px;min-height:300px;padding:28px;background:var(--noite-2);border:1px solid var(--linha);border-top:4px solid var(--lamina);text-decoration:none;transition:transform .3s,border-color .3s}
+.porta:hover{transform:translateY(-6px);border-color:var(--lamina)}
+.ato{padding:clamp(56px,7vw,104px) 0}
+.ato-grade{display:flex;flex-wrap:wrap;gap:24px 64px}
+.ato-lado{flex:0 0 220px}
+.ato-texto{flex:1 1 480px;min-width:0}
+.ato-texto h2{font-size:clamp(34px,4.4vw,56px);margin:0 0 24px}
+.ato-num{font-family:var(--f-display);font-weight:900;font-size:clamp(90px,11vw,150px);line-height:.85}
+.chip{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--linha);font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-decoration:none}
+.chip:hover{border-color:var(--lamina)}
+.sup-papel a{color:var(--sangue)}
+@media (max-width:720px){.ato-lado{flex-basis:100%}.ato-num{font-size:72px}}
