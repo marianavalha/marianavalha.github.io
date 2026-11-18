@@ -165,4 +165,43 @@ header.topo{position:sticky;top:0;z-index:50;background:rgba(15,11,12,.94);backd
 .chip{display:inline-flex;align-items:center;min-height:44px;padding:0 16px;border:1px solid var(--linha);font-family:var(--f-mono);font-size:13px;letter-spacing:.06em;text-decoration:none}
 .chip:hover{border-color:var(--lamina)}
 .sup-papel a{color:var(--sangue)}
-@media (max-width:720px){.ato-lado{flex-basis:100%}.ato-num{font-size:72px}}
+@media (max-width:720px){.ato-lado{flex-basis:100%}.ato-num{font-size:72px}
+ header.topo{position:static}
+ header.topo nav{flex-wrap:nowrap!important;overflow-x:auto;width:100%;gap:0 20px!important;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+ header.topo nav::-webkit-scrollbar{display:none}
+ header.topo .nav-link{white-space:nowrap}
+ .duas-colunas{grid-template-columns:1fr!important}}
+/* ---------- Formulário ---------- */
+.formulario{display:flex;flex-direction:column;gap:24px}
+.campo{display:flex;flex-direction:column;gap:8px;border:0;padding:0;margin:0;min-width:0}
+.rotulo-campo{font:600 13px var(--f-mono);letter-spacing:.12em;text-transform:uppercase;color:var(--tinta)}
+.opcional{font-weight:400;letter-spacing:.04em;text-transform:none;color:var(--cinza);font-family:var(--f-texto)}
+.formulario input[type=text],.formulario input[type=email],.formulario select,.formulario textarea{
+ width:100%;font:400 17px/1.6 var(--f-texto);color:var(--tinta);background:var(--papel-2);
+ border:1.5px solid var(--linha-papel);border-radius:0;padding:14px 16px;min-height:52px;transition:border-color .2s}
+.formulario textarea{resize:vertical;min-height:220px}
+.formulario input:focus,.formulario select:focus,.formulario textarea:focus{outline:none;border-color:var(--sangue);box-shadow:0 0 0 3px rgba(143,42,38,.15)}
+.formulario ::placeholder{color:#9a8f82}
+.duas-colunas{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.opcoes{display:flex;flex-wrap:wrap;gap:10px;margin-top:4px}
+.opcao{position:relative;cursor:pointer}
+.opcao input{position:absolute;opacity:0;inset:0}
+.opcao span{display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1.5px solid var(--tinta);font:500 15px var(--f-texto);transition:background .2s,color .2s}
+.opcao input:checked + span{background:var(--tinta);color:var(--papel)}
+.opcao input:focus-visible + span{outline:2px solid var(--sangue);outline-offset:3px}
+.ajuda{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--cinza)}
+.erro{color:var(--sangue);font-weight:600}
+.autoriza{display:flex;gap:12px;align-items:flex-start;font-size:15px;line-height:1.5;cursor:pointer}
+.autoriza input{width:22px;height:22px;margin-top:1px;accent-color:var(--sangue);flex:0 0 auto}
+.armadilha{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.status{margin:0;font-size:16px;font-weight:600;color:var(--sangue);min-height:1.5em}
+.botao:disabled{opacity:.6;cursor:wait}
+.lista-regras{margin:0;padding-left:20px;display:flex;flex-direction:column;gap:12px;font-size:16px;line-height:1.55}
+.et-relato{background:#f3d9d7;color:#7a1514}
+.grade-relatos{columns:3 320px;column-gap:20px}
+.relato{break-inside:avoid;margin:0 0 20px;padding:26px;background:var(--noite-2);border:1px solid var(--linha);border-left:3px solid var(--lamina)}
+.relato p{margin:12px 0 0;font-size:17px;line-height:1.65}
+.relato-topo{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.relato-meta{font:12px var(--f-mono);letter-spacing:.08em;text-transform:uppercase;color:var(--cinza-noite)}
+.relato .relato-autor{margin-top:18px;font:13px var(--f-mono);letter-spacing:.06em;color:var(--ouro)}
+.vazio{color:var(--cinza-noite);font-size:17px}

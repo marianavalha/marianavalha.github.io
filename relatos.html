@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Relatos · Maria Navalha</title>
+<meta name="description" content="Maria Navalha: a lâmina e a rua. Obra de estudo sobre a entidade da malandragem, o Rio de Janeiro do pós-abolição e a força feminina nas religiões de matriz africana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="site.css">
+</head>
+<body>
+<div class="progresso" id="progresso"></div>
+<header class="topo">
+  <div class="envolve" style="display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px 32px;padding-top:14px;padding-bottom:14px">
+    <a href="index.html" style="font-family:var(--f-display);font-weight:900;font-size:24px;text-decoration:none">Maria <em style="color:var(--lamina);font-weight:700">Navalha</em></a>
+    <nav aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:0 26px;font-family:var(--f-mono);font-size:13px;letter-spacing:.1em;text-transform:uppercase"><a href="historia.html" class="nav-link">A história</a><a href="hoje.html" class="nav-link">Hoje</a><a href="estante.html" class="nav-link">Estante</a><a href="relatos.html" class="nav-link" aria-current="page">Relatos</a><a href="fontes.html" class="nav-link">Fontes e método</a></nav>
+  </div>
+</header>
+<main>
+<section class="envolve" style="padding-top:clamp(56px,8vw,104px);padding-bottom:48px">
+  <p class="rotulo" style="color:var(--lamina);margin:0 0 16px">Relatos</p>
+  <h1 class="display" style="margin:0;font-size:clamp(48px,8vw,104px);max-width:980px">A história também é de quem viveu.</h1>
+  <p style="margin:28px 0 0;max-width:660px;font-size:20px;color:#d8cdbd">Conte seu encontro com Maria Navalha, mande uma informação que falta nesta obra ou deixe sua dúvida. Tudo é lido antes de entrar no site.</p>
+</section>
+
+<section class="sup-papel ato">
+  <div class="envolve" style="display:flex;flex-wrap:wrap;gap:48px 72px;align-items:flex-start">
+
+    <div style="flex:1 1 300px;min-width:0;max-width:420px">
+      <h2 class="titulo" style="font-size:clamp(30px,3.6vw,44px);margin:0 0 20px">Antes de escrever</h2>
+      <ul class="lista-regras">
+        <li>Relato é experiência pessoal. Entra com a etiqueta <span class="etiqueta et-relato">Relato</span>, separado de documento, pesquisa e tradição.</li>
+        <li>Pode ser anônimo. Nome, cidade e e-mail são opcionais.</li>
+        <li>Não cite nome de terreiro, dirigente ou outra pessoa sem a autorização deles.</li>
+        <li>Fundamento e ritual da sua casa ficam na sua casa.</li>
+        <li>Mensagens com ataque, intolerância ou propaganda não são publicadas.</li>
+        <li>Seu e-mail nunca aparece no site. Ele só serve para respondermos, se você quiser.</li>
+      </ul>
+    </div>
+
+    <form id="form-relato" class="formulario" style="flex:2 1 460px;min-width:0" novalidate>
+      <fieldset class="campo">
+        <legend class="rotulo-campo">O que você quer enviar?</legend>
+        <div class="opcoes" role="radiogroup">
+          <label class="opcao"><input type="radio" name="tipo" value="Relato" checked><span>Relato</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Informação"><span>Informação</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Sugestão"><span>Sugestão</span></label>
+          <label class="opcao"><input type="radio" name="tipo" value="Dúvida"><span>Dúvida</span></label>
+        </div>
+      </fieldset>
+
+      <div class="campo">
+        <label class="rotulo-campo" for="mensagem" id="rotulo-mensagem">Seu relato</label>
+        <textarea id="mensagem" name="mensagem" rows="9" maxlength="5000" required placeholder="Como foi o seu encontro com ela? O que aconteceu, onde, o que ficou."></textarea>
+        <div class="ajuda"><span id="erro-mensagem" class="erro" aria-live="polite"></span><span id="contador">0 / 5000</span></div>
+      </div>
+
+      <div class="duas-colunas">
+        <div class="campo">
+          <label class="rotulo-campo" for="nome">Nome ou apelido <span class="opcional">opcional</span></label>
+          <input id="nome" name="nome" type="text" maxlength="80" autocomplete="nickname" placeholder="Pode deixar em branco">
+        </div>
+        <div class="campo">
+          <label class="rotulo-campo" for="cidade">Cidade e estado <span class="opcional">opcional</span></label>
+          <input id="cidade" name="cidade" type="text" maxlength="80" placeholder="Ex.: Rio de Janeiro, RJ">
+        </div>
+      </div>
+
+      <div class="duas-colunas">
+        <div class="campo">
+          <label class="rotulo-campo" for="tradicao">Tradição <span class="opcional">opcional</span></label>
+          <select id="tradicao" name="tradicao">
+            <option value="">Prefiro não dizer</option>
+            <option>Umbanda</option><option>Quimbanda</option><option>Kimbanda</option>
+            <option>Jurema Sagrada</option><option>Candomblé</option><option>Omolocô</option>
+            <option>Não sou de terreiro</option><option>Outra</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label class="rotulo-campo" for="email">E-mail <span class="opcional">opcional, nunca publicado</span></label>
+          <input id="email" name="email" type="email" maxlength="120" autocomplete="email" placeholder="Para respondermos">
+        </div>
+      </div>
+
+      <label class="autoriza"><input type="checkbox" id="autoriza" name="autoriza"><span>Autorizo publicar esta mensagem no site, sem meu e-mail. Se não marcar, ela é lida, mas não aparece.</span></label>
+
+      <input type="text" name="site" id="site" tabindex="-1" autocomplete="off" aria-hidden="true" class="armadilha">
+
+      <button type="submit" class="botao botao-lamina" id="enviar" style="border:0;cursor:pointer;font-size:16px">Enviar</button>
+      <p id="status" class="status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+<section class="sup-noite ato">
+  <div class="envolve">
+    <p class="rotulo" style="color:var(--lamina);margin:0 0 12px">Publicados</p>
+    <h2 class="titulo" style="font-size:clamp(34px,4.4vw,56px);margin:0 0 12px">Quem já contou</h2>
+    <p style="margin:0 0 36px;max-width:var(--medida);color:var(--cinza-noite)">Relatos são experiência pessoal, não fundamento nem documento. Cada casa tem o seu caminho.</p>
+    <div id="lista-relatos" class="grade-relatos" aria-live="polite"><p style="color:var(--cinza-noite)">Carregando relatos…</p></div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var FORM = 'https://docs.google.com/forms/d/e/1FAIpQLSdzGSoIkEqJH0e655yqUJ1hyM7QYs0pqfUsoYblZx5-b0XPkA/formResponse';
+  var CSV = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vQ83P654KDeN9xEN5CisGygcItuw5VeIJc8_uLhrz6bo-CKM8qcjf7m04QhY1xgbple9vPzSfkLaBCf/pub?gid=421117456&single=true&output=csv';
+  var E = { tipo: 'entry.1257746832', nome: 'entry.342222090', cidade: 'entry.567173390', tradicao: 'entry.1734246832', mensagem: 'entry.1918144119', autoriza: 'entry.1376782344', email: 'entry.809394072' };
+  var dicas = {
+    'Relato': ['Seu relato', 'Como foi o seu encontro com ela? O que aconteceu, onde, o que ficou.'],
+    'Informação': ['A informação', 'O que falta nesta obra? Se puder, diga de onde vem: livro, jornal, ponto, pessoa mais velha da casa.'],
+    'Sugestão': ['Sua sugestão', 'O que podemos melhorar, corrigir ou acrescentar?'],
+    'Dúvida': ['Sua dúvida', 'O que você quer saber? Respondemos por e-mail, se você deixar um.']
+  };
+  var f = document.getElementById('form-relato');
+  var msg = document.getElementById('mensagem');
+  var cont = document.getElementById('contador');
+  var status = document.getElementById('status');
+  var btn = document.getElementById('enviar');
+  var ultimoEnvio = 0;
+
+  f.querySelectorAll('input[name=tipo]').forEach(function (r) {
+    r.addEventListener('change', function () {
+      var d = dicas[r.value]; document.getElementById('rotulo-mensagem').textContent = d[0]; msg.placeholder = d[1];
+    });
+  });
+  msg.addEventListener('input', function () { cont.textContent = msg.value.length + ' / 5000'; document.getElementById('erro-mensagem').textContent = ''; });
+
+  f.addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (document.getElementById('site').value) return; // robô
+    var texto = msg.value.trim();
+    if (texto.length < 20) { document.getElementById('erro-mensagem').textContent = 'Escreva pelo menos algumas linhas.'; msg.focus(); return; }
+    var email = document.getElementById('email');
+    if (email.value && !email.checkValidity()) { status.textContent = 'Confira o e-mail ou deixe em branco.'; email.focus(); return; }
+    if (Date.now() - ultimoEnvio < 30000) { status.textContent = 'Recebemos sua mensagem há pouco. Aguarde alguns segundos para enviar outra.'; return; }
+    var dados = new FormData();
+    dados.append(E.tipo, f.querySelector('input[name=tipo]:checked').value);
+    dados.append(E.nome, document.getElementById('nome').value.trim());
+    dados.append(E.cidade, document.getElementById('cidade').value.trim());
+    dados.append(E.tradicao, document.getElementById('tradicao').value);
+    dados.append(E.mensagem, texto);
+    dados.append(E.autoriza, document.getElementById('autoriza').checked ? 'sim' : 'não');
+    dados.append(E.email, email.value.trim());
+    btn.disabled = true; btn.textContent = 'Enviando…'; status.textContent = '';
+    fetch(FORM, { method: 'POST', mode: 'no-cors', body: dados })
+      .then(function () {
+        ultimoEnvio = Date.now();
+        f.reset(); cont.textContent = '0 / 5000';
+        status.textContent = 'Recebido. Obrigado por confiar sua história a esta obra. Tudo é lido antes de entrar no site.';
+      })
+      .catch(function () { status.textContent = 'Não foi possível enviar agora. Verifique sua conexão e tente de novo.'; })
+      .then(function () { btn.disabled = false; btn.textContent = 'Enviar'; });
+  });
+
+  // Lista de publicados
+  function csv(t) {
+    var linhas = [], campo = '', linha = [], aspas = false;
+    for (var i = 0; i < t.length; i++) {
+      var c = t[i];
+      if (aspas) { if (c === '"') { if (t[i + 1] === '"') { campo += '"'; i++; } else aspas = false; } else campo += c; }
+      else if (c === '"') aspas = true;
+      else if (c === ',') { linha.push(campo); campo = ''; }
+      else if (c === '\n' || c === '\r') { if (c === '\r' && t[i + 1] === '\n') i++; linha.push(campo); linhas.push(linha); linha = []; campo = ''; }
+      else campo += c;
+    }
+    if (campo || linha.length) { linha.push(campo); linhas.push(linha); }
+    return linhas;
+  }
+  function el(tag, cls, txt) { var e = document.createElement(tag); if (cls) e.className = cls; if (txt) e.textContent = txt; return e; }
+  var lista = document.getElementById('lista-relatos');
+  if (CSV.indexOf('http') !== 0) { lista.innerHTML = ''; lista.appendChild(el('p', 'vazio', 'Os primeiros relatos aparecem aqui assim que forem lidos e aprovados.')); return; }
+  fetch(CSV, { cache: 'no-store' }).then(function (r) { return r.text(); }).then(function (t) {
+    var rows = csv(t).slice(1).filter(function (r) { return r.length >= 6 && (r[5] || '').trim() && (r[1] === 'Relato' || r[1] === 'Informação'); });
+    lista.innerHTML = '';
+    if (!rows.length) { lista.appendChild(el('p', 'vazio', 'Os primeiros relatos aparecem aqui assim que forem lidos e aprovados.')); return; }
+    rows.forEach(function (r) {
+      var card = el('article', 'relato');
+      var topo = el('div', 'relato-topo');
+      topo.appendChild(el('span', 'etiqueta ' + (r[1] === 'Relato' ? 'et-relato' : 'et-pista'), r[1]));
+      if (r[4]) topo.appendChild(el('span', 'relato-meta', r[4]));
+      card.appendChild(topo);
+      r[5].split(/\n+/).forEach(function (p) { if (p.trim()) card.appendChild(el('p', null, p.trim())); });
+      card.appendChild(el('p', 'relato-autor', (r[2] || 'Anônimo') + (r[3] ? ' · ' + r[3] : '')));
+      lista.appendChild(card);
+    });
+  }).catch(function () { lista.innerHTML = ''; lista.appendChild(el('p', 'vazio', 'Não foi possível carregar os relatos agora.')); });
+})();
+</script>
+
+</main>
+<footer class="envolve" style="padding-top:40px;padding-bottom:48px;font-size:14px;color:var(--cinza-noite);border-top:1px solid var(--linha);display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between">
+  <span>Maria Navalha: a lâmina e a rua. As histórias de terreiro são tradição, não registro histórico.</span>
+  <span><a href="fontes.html">Fontes e método</a> · <a href="design.html">Design system</a></span>
+</footer>
+<script src="site.js"></script>
+</body>
+</html>
